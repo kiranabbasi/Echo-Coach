@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Echo",
+    "slug": "echocoach",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "echocoach",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.echocoach.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "EchoCoach needs microphone access to listen to your speech and provide coaching feedback.",
+        "NSSpeechRecognitionUsageDescription": "EchoCoach uses speech recognition to transcribe your spoken English."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.echocoach.app",
+      "permissions": [
+        "RECORD_AUDIO",
+        "INTERNET",
+        "MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+# =============================================================================
+# EchoCoach Root .gitignore
+# Applies to full project (root + backend + mobile)
+# =============================================================================
+
+# ── Environment Variables / Secrets ──────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python (Backend) ─────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# ── FastAPI / Server Logs ────────────────────────────────────────────────────
+*.log
+logs/
+uvicorn.log
+
+# ── Node / React Native / Expo (Mobile) ─────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.expo/
+.expo-shared/
+.web-build/
+dist/
+build/
+
+# ── Expo Native Build Files ──────────────────────────────────────────────────
+android/
+ios/
+
+# Keep if you actually use custom native builds:
+# !mobile/android/
+# !mobile/ios/
+
+# ── Metro / React Native Cache ───────────────────────────────────────────────
+.metro-cache/
+*.tsbuildinfo
+
+# ── ONNX / Large Local Assets (Optional) ─────────────────────────────────────
+# Uncomment if silero model downloaded locally and too large:
+# mobile/assets/silero_vad.onnx
+
+# ── OS Files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── GitHub / Deployment ──────────────────────────────────────────────────────
+.vercel/
+.railway/
+.cache/
+
+# ── Supabase Local ───────────────────────────────────────────────────────────
+.supabase/
+
+# ── Temporary Files ──────────────────────────────────────────────────────────
+tmp/
+temp/
+*.tmp
+
+# ── Jupyter / Notebook ───────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── Testing / Coverage ───────────────────────────────────────────────────────
+coverage/
+.pyre/
+
+# ── Optional Media / Debug Audio Dumps ───────────────────────────────────────
+*.wav
+*.mp3
+recordings/
+debug_audio/
+
+# =============================================================================
+# IMPORTANT:
+# Keep public-safe templates:
+#   .env.example
+# Ignore private:
+#   .env
+# =============================================================================
