@@ -7,11 +7,7 @@ if (Platform.OS === 'android' && BASE_URL.includes('localhost')) {
 }
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
-  const { data: { session }, error } = await supabase.auth.getSession();
-
-  console.log("SESSION:", session);
-  console.log("TOKEN:", session?.access_token);
-  console.log("ERROR:", error);
+  const { data: { session } } = await supabase.auth.getSession();
 
   if (!session?.access_token) return {};
 
@@ -20,7 +16,7 @@ async function getAuthHeaders(): Promise<Record<string, string>> {
   };
 }
 
-async function request(method: string, path: string, body?: object): Promise<any> {
+async function request(method: string, path: string, body?: Record<string, unknown>): Promise<any> {
   const headers = await getAuthHeaders();
   const res = await fetch(`${BASE_URL}${path}`, {
     method,
@@ -40,9 +36,9 @@ async function request(method: string, path: string, body?: object): Promise<any
 }
 
 export const api = {
-  get:    (path: string)                => request('GET',    path),
-  post:   (path: string, body: object)  => request('POST',   path, body),
-  put:    (path: string, body: object)  => request('PUT',    path, body),
-  patch:  (path: string, body: object)  => request('PATCH',  path, body),
-  delete: (path: string)                => request('DELETE', path),
+  get: (path: string) => request('GET', path),
+  post: (path: string, body: Record<string, unknown>) => request('POST', path, body),
+  put: (path: string, body: Record<string, unknown>) => request('PUT', path, body),
+  patch: (path: string, body: Record<string, unknown>) => request('PATCH', path, body),
+  delete: (path: string) => request('DELETE', path),
 };
